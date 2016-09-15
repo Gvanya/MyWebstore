@@ -17,5 +17,5 @@ public class CustomerController {
     public String customer(Model model){
         model.addAttribute("customers", customerRepository.getAllCustomers());
         return "customers";
-    }
+    }//jhjhh
 }
