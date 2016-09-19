@@ -17,13 +17,14 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
-    <mvc:resources  location="/resources/"  mapping="/resource/**"/>
-
     <bean id= "messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="messages"/>
     </bean>
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="maxUploadSize" value="10000000"/>
+
+    <mvc:resources  location="/resources/"  mapping="/resource/**"/>
+
+    <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10240000"/>
     </bean>
 
     <bean class= "org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
@@ -49,6 +50,26 @@
                 </property>
             </bean>
         </constructor-arg>
+    </bean>
+
+    <mvc:interceptors>
+        <bean class= "com.packt.webstore.interceptor.PerformanceMonitorInterceptor"/>
+        <bean class= "org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+            <property name="paramName" value="language"/>
+        </bean>
+
+        <bean class= "com.packt.webstore.interceptor.AuditingInterceptor"/>
+        <bean class= "com.packt.webstore.interceptor.PromoCodeInterceptor">
+            <property name="promoCode" value="OFF3R"/>
+            <property name="errorRedirect" value="invalidPromoCode"/>
+            <property name="offerRedirect" value="products"/>
+        </bean>
+
+
+    </mvc:interceptors>
+
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+        <property name="defaultLocale" value="en"/>
     </bean>
 
 </beans>
