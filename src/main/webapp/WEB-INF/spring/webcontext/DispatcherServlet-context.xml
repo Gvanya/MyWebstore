@@ -26,5 +26,29 @@
         <property name="maxUploadSize" value="10000000"/>
     </bean>
 
+    <bean class= "org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="defaultViews">
+            <list>
+                <ref bean="jsonView"/>
+                <ref bean="xmlView"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="jsonView"	class= "org.springframework.web.servlet.view.json.MappingJacksonJsonView">
+        <property name="prettyPrint" value="true"/>
+    </bean>
+
+    <bean id="xmlView" class= "org.springframework.web.servlet.view.xml.MarshallingView">
+        <constructor-arg>
+            <bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+                <property name="classesToBeBound">
+                    <list>
+                        <value>com.packt.webstore.domain.Product</value>
+                    </list>
+                </property>
+            </bean>
+        </constructor-arg>
+    </bean>
 
 </beans>
