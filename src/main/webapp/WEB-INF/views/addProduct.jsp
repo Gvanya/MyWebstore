@@ -26,10 +26,12 @@
         <fieldset>
             <legend>Add new product</legend>
 
+            <form:errors path="*" cssClass="alert alert-danger" element="div"/>
             <div class="form-group">
-                <label class="control-label col-lg-2 col-lg-2" for="productId"><spring:message code="addProdcut.form.productId.label"/></label>
+                <label class="control-label col-lg-2 col-lg-2" for="productId"><spring:message code="addProduct.form.category.label"/></label>
                 <div class="col-lg-10">
                     <form:input id="productId" path="productId" type="text" class="form:input-large"/>
+                    <form:errors path="productId" cssClass="text-danger"/>
                 </div>
             </div>
 
@@ -88,8 +90,7 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label col-lg-2" for="productImage"> <spring:message
-                        code="addProdcut.form.productImage.label" />
+                <label class="control-label col-lg-2" for="productImage"> <spring:message code="addProduct.form.category.label" />
                 </label>
                 <div class="col-lg-10">
                     <form:input id="productImage" path="productImage" type="file"
