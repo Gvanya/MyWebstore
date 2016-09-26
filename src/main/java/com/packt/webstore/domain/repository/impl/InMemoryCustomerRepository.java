@@ -15,9 +15,9 @@ public class InMemoryCustomerRepository implements CustomerRepository {
     private List<Customer> listOfCustomers = new ArrayList<Customer>();
 
     public InMemoryCustomerRepository() {
-        Customer cust1 = new Customer("0001","Semen", "Belova Street", false);
-        Customer cust2 = new Customer("0002","Sergei", "Rokos Street", false);
-        Customer cust3 = new Customer("0003","Dima", "Mira Street", false);
+        Customer cust1 = new Customer("0001", "Semen");
+        Customer cust2 = new Customer("0002","Sergei");
+        Customer cust3 = new Customer("0003","Dima");
 
         listOfCustomers.add(cust1);
         listOfCustomers.add(cust2);

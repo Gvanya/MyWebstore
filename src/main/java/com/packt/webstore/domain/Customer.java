@@ -1,61 +1,87 @@
 package com.packt.webstore.domain;
 
-/**
- * Created by ivan on 05.09.2016.
- */
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable{
+
+    private static final long serialVersionUID = 2284040482222162898L;
 
     private String customerId;
     private String name;
-    private String address;
-    private boolean noOfOrdersMade;
+    private Address billingAddress;
+    private String phoneNumber;
 
-    public Customer(String customerId, String name, String address, boolean noOfOrdersMade) {
+    public Customer() {
+        this.billingAddress = new Address();
+    }
+
+    public Customer(String customerId, String name) {
+        this();
         this.customerId = customerId;
         this.name = name;
-        this.address = address;
-        this.noOfOrdersMade = noOfOrdersMade;
     }
 
     public String getCustomerId() {
         return customerId;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public boolean isNoOfOrdersMade() {
-        return noOfOrdersMade;
-    }
-
     public void setCustomerId(String customerId) {
         this.customerId = customerId;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public Address getBillingAddress() {
+        return billingAddress;
     }
 
-    public void setNoOfOrdersMade(boolean noOfOrdersMade) {
-        this.noOfOrdersMade = noOfOrdersMade;
+    public void setBillingAddress(Address billingAddress) {
+        this.billingAddress = billingAddress;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
     }
 
     @Override
-    public String toString() {
-        return "Customer{" +
-                "customerId='" + customerId + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", noOfOrdersMade=" + noOfOrdersMade +
-                '}';
+    public int hashCode() {
+        final int prime = 853;
+        int result = 1;
+        result = prime * result
+                + ((customerId == null) ? 0 : customerId.hashCode());
+        return result;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Customer other = (Customer) obj;
+        if (customerId == null) {
+            if (other.customerId != null)
+                return false;
+        } else if (!customerId.equals(other.customerId))
+            return false;
+        return true;
+    }
+
+
 }
