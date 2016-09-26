@@ -8,16 +8,6 @@
           href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <title>Products</title>
 </head>
-<body>
-<section>
-    <div class="jumbotron">
-        <div class="container">
-            <h1>Products</h1>
-            <p>All the available products in our store</p>
-        </div>
-    </div>
-</section>
-
 <section class="container">
     <div class="row">
         <c:forEach items="${products}" var="product">
@@ -43,5 +33,4 @@
         </c:forEach>
     </div>
 </section>
-</body>
 </html>

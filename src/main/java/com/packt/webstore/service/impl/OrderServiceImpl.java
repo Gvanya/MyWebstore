@@ -13,30 +13,30 @@ import com.packt.webstore.service.OrderService;
 @Service
 public class OrderServiceImpl implements OrderService{
 
-    @Autowired
-    private ProductRepository productRepository;
+	@Autowired
+	private ProductRepository productRepository;
+	
+	@Autowired
+	private OrderRepository orderRepository;
+	
+	@Autowired
+	private CartService cartService;
 
-    @Autowired
-    private OrderRepository orderRepository;
-
-    @Autowired
-    private CartService cartService;
-
-
-    public void processOrder(String productId, long quantity) {
-        Product productById = productRepository.getProductById(productId);
-
-        if(productById.getUnitsInStock() < quantity){
-            throw new IllegalArgumentException("Out of Stock. Available Units in stock"+ productById.getUnitsInStock());
-        }
-
-        productById.setUnitsInStock(productById.getUnitsInStock() - quantity);
-    }
-
-    public Long saveOrder(Order order) {
-        Long orderId = orderRepository.saveOrder(order);
-        cartService.delete(order.getCart().getCartId());
-        return orderId;
-    }
+	
+	public void processOrder(String productId, long quantity) {
+		Product productById = productRepository.getProductById(productId);
+		
+		if(productById.getUnitsInStock() < quantity){
+			throw new IllegalArgumentException("Out of Stock. Available Units in stock"+ productById.getUnitsInStock());
+		}
+		
+		productById.setUnitsInStock(productById.getUnitsInStock() - quantity);
+	}
+	
+	public Long saveOrder(Order order) {
+		Long orderId = orderRepository.saveOrder(order);
+		cartService.delete(order.getCart().getCartId());
+		return orderId;
+	}
 
 }

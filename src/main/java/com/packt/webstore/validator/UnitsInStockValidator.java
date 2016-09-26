@@ -9,16 +9,16 @@ import com.packt.webstore.domain.Product;
 @Component
 public class UnitsInStockValidator implements Validator{
 
-    public boolean supports(Class<?> clazz) {
-        return Product.class.isAssignableFrom(clazz);
-    }
+	public boolean supports(Class<?> clazz) {
+        return Product.class.isAssignableFrom(clazz);  
+	}
 
-    public void validate(Object target, Errors errors) {
-        Product product = (Product) target;
+	public void validate(Object target, Errors errors) {
+		Product product = (Product) target;
 
-        if(product.getUnitPrice()!= null && new BigDecimal(10000).compareTo(product.getUnitPrice())<=0 && product.getUnitsInStock()>99) {
-            errors.rejectValue("unitsInStock", "com.packt.webstore.validator.UnitsInStockValidator.message");
-        }
-    }
+		if(product.getUnitPrice()!= null && new BigDecimal(10000).compareTo(product.getUnitPrice())<=0 && product.getUnitsInStock()>99) {
+			errors.rejectValue("unitsInStock", "com.packt.webstore.validator.UnitsInStockValidator.message");
+		}
+	}
 
 }
