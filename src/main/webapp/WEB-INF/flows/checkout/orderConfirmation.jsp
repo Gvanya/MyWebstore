@@ -6,12 +6,14 @@
 
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet"
 		  href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 	<title>Order Confirmation</title>
 </head>
+
 <body>
+
 <section>
 	<div class="jumbotron">
 		<div class="container">
@@ -25,6 +27,7 @@
 		<form:form modelAttribute="order" class="form-horizontal">
 			<input type="hidden" name="_flowExecutionKey"
 				   value="${flowExecutionKey}" />
+
 			<div
 					class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
 				<div class="text-center">
@@ -64,8 +67,10 @@
 								${order.customer.phoneNumber}
 						</address>
 					</div>
+
 				</div>
 				<div class="row">
+
 					<table class="table table-hover">
 						<thead>
 						<tr>
@@ -86,11 +91,13 @@
 							</tr>
 						</c:forEach>
 						<tr>
-							<td> </td>
-							<td> </td>
-							<td class="text-right"><h4>
-								<strong>Grand Total: </strong>
-							</h4></td>
+							<td></td>
+							<td></td>
+							<td class="text-right">
+								<h4>
+									<strong>Grand Total:</strong>
+								</h4>
+							</td>
 							<td class="text-center text-danger"><h4>
 								<strong>$${order.cart.grandTotal}</strong>
 							</h4></td>
@@ -99,9 +106,9 @@
 					</table>
 					<button id="back" class="btn btn-default"
 							name="_eventId_backToCollectShippingDetail">back</button>
+
 					<button type="submit" class="btn btn-success"
-							name="_eventId_orderConfirmed">
-						Confirm   <span class="glyphicon glyphicon-chevron-right"></span>
+							name="_eventId_orderConfirmed">Confirm<span class="glyphicon glyphicon-chevron-right"></span>
 					</button>
 					<button id="btnCancel" class="btn btn-default"
 							name="_eventId_cancel">Cancel</button>

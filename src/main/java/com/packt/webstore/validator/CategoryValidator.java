@@ -1,23 +1,16 @@
 package com.packt.webstore.validator;
 
-import java.util.Arrays;
-import java.util.List;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class CategoryValidator implements ConstraintValidator<Category, String> {
-
-    private List<String> categories = Arrays.asList("tablets","phones", "laptops");
-
+public class CategoryValidator implements ConstraintValidator<Category, String>{
     @Override
-    public void initialize(Category constraintAnnotation) {
-        // left blank
+    public void initialize(Category category) {
     }
 
     @Override
-    public boolean isValid(String value, ConstraintValidatorContext context) {
-        return categories.contains(value.toLowerCase());
+    public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
+        return false;
     }
-
 }

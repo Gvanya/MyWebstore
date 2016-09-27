@@ -48,7 +48,7 @@ public class Order  implements Serializable{
         this.shippingDetail = shippingDetail;
     }
 
-    public static long getSerialversionuid() {
+    public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
@@ -76,4 +76,6 @@ public class Order  implements Serializable{
             return false;
         return true;
     }
+
+
 }

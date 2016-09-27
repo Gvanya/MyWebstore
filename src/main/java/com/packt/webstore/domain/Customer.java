@@ -2,10 +2,8 @@ package com.packt.webstore.domain;
 
 import java.io.Serializable;
 
-public class Customer implements Serializable{
-
+public class Customer implements Serializable {
     private static final long serialVersionUID = 2284040482222162898L;
-
     private String customerId;
     private String name;
     private Address billingAddress;
@@ -53,7 +51,7 @@ public class Customer implements Serializable{
         this.phoneNumber = phoneNumber;
     }
 
-    public static long getSerialversionuid() {
+    public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
@@ -82,6 +80,5 @@ public class Customer implements Serializable{
             return false;
         return true;
     }
-
 
 }

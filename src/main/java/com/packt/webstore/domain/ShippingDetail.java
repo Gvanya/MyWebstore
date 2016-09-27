@@ -1,8 +1,9 @@
 package com.packt.webstore.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
-import org.springframework.format.annotation.DateTimeFormat;
 
 public class ShippingDetail implements Serializable{
 
@@ -49,7 +50,7 @@ public class ShippingDetail implements Serializable{
     }
 
 
-    public static long getSerialversionuid() {
+    public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 }

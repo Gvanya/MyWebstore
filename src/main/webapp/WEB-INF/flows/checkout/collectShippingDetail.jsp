@@ -4,7 +4,7 @@
 
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet"
 		  href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 	<title>Customer</title>
@@ -29,12 +29,14 @@
 					<form:input id="name" path="name" type="text" class="form:input-large" />
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label class="control-label col-lg-2 col-lg-2" for="shippingDate" />shipping Date (dd/mm/yyyy)</label>
 				<div class="col-lg-10">
 					<form:input id="shippingDate" path="shippingDate" type="text" class="form:input-large" />
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label class="control-label col-lg-2" for="doorNo">Door No</label>
 				<div class="col-lg-10">
@@ -42,6 +44,7 @@
 								class="form:input-large" />
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label class="control-label col-lg-2" for="streetName">Street Name</label>
 				<div class="col-lg-10">
@@ -49,6 +52,7 @@
 								class="form:input-large" />
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label class="control-label col-lg-2" for="areaName">Area Name</label>
 				<div class="col-lg-10">
@@ -56,6 +60,7 @@
 								class="form:input-large" />
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label class="control-label col-lg-2" for="state">State</label>
 				<div class="col-lg-10">
@@ -63,6 +68,7 @@
 								class="form:input-large" />
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label class="control-label col-lg-2" for="country">country</label>
 				<div class="col-lg-10">
@@ -70,6 +76,7 @@
 								class="form:input-large" />
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label class="control-label col-lg-2" for="zipCode">Zip Code</label>
 				<div class="col-lg-10">
@@ -77,7 +84,9 @@
 								class="form:input-large" />
 				</div>
 			</div>
+
 			<input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}"/>
+
 			<div class="form-group">
 				<div class="col-lg-offset-2 col-lg-10">
 					<button id="back" class="btn btn-default" name="_eventId_backToCollectCustomerInfo">back</button>
@@ -87,6 +96,7 @@
 					<button id="btnCancel" class="btn btn-default" name="_eventId_cancel">Cancel</button>
 				</div>
 			</div>
+
 		</fieldset>
 	</form:form>
 </section>
