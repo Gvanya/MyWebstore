@@ -18,4 +18,5 @@ public @interface Category {
     Class<?>[] groups() default {};
     public abstract Class<? extends Payload>[] payload() default {};
     List<String> allowedCategories =null;
+
 }

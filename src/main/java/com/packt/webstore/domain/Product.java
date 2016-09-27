@@ -1,46 +1,41 @@
 package com.packt.webstore.domain;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
-
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-
+import com.packt.webstore.validator.ProductId;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.packt.webstore.validator.ProductId;
+import javax.validation.constraints.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import java.io.Serializable;
+import java.math.BigDecimal;
 
-@XmlRootElement 
+@XmlRootElement
 public class Product implements Serializable{
 
-	private static final long serialVersionUID = 3678107792576131001L;
+    private static final long serialVersionUID = 3678107792576131001L;
 
-	@Pattern(regexp="P[1-9]+", message="{Pattern.Product.productId.validation}")
-	@ProductId 
+	@Pattern(regexp="P[0-9]+", message="{Pattern.Product.productId.validation}")
+	@ProductId
 	private String productId;
-	
 	@Size(min=4, max=50, message="{Size.Product.name.validation}")
 	private String name;
-	
 	@Min(value=0, message="Min.Product.unitPrice.validation}")
 	@Digits(integer=8, fraction=2, message="{Digits.Product.unitPrice.validation}")
 	@NotNull(message= "{NotNull.Product.unitPrice.validation}")
 	private BigDecimal unitPrice;
 	private String description;
 	private String manufacturer;
+	@Size(min=4, max=50, message="{Size.Product.category.validation}")
 	private String category;
 	private long unitsInStock;
 	private long unitsInOrder;
 	private boolean discontinued;
 	private String condition;
-	@JsonIgnore 
-	private MultipartFile  productImage;
+	@JsonIgnore
+	private MultipartFile productImage;
+	@JsonIgnore
+	private MultipartFile productPdf;
 
 	public Product() {
 		super();
@@ -78,15 +73,6 @@ public class Product implements Serializable{
 
 	public String getDescription() {
 		return description;
-	}
-
-	@XmlTransient  
-	public MultipartFile getProductImage() {
-		return productImage;
-	}
-
-	public void setProductImage(MultipartFile productImage) {
-		this.productImage = productImage;
 	}
 
 	public void setDescription(String description) {
@@ -132,14 +118,6 @@ public class Product implements Serializable{
 	public void setDiscontinued(boolean discontinued) {
 		this.discontinued = discontinued;
 	}
-	
-	public String getCondition() {
-		return condition;
-	}
-
-	public void setCondition(String condition) {
-		this.condition = condition;
-	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -170,5 +148,30 @@ public class Product implements Serializable{
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", name=" + name + "]";
+	}
+
+	public String getCondition() {
+		return condition;
+	}
+
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
+	
+	@XmlTransient
+	public MultipartFile getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(MultipartFile productImage) {
+		this.productImage = productImage;
+	}
+	@XmlTransient
+	public MultipartFile getProductPdf() {
+		return productPdf;
+	}
+
+	public void setProductPdf(MultipartFile productPdf) {
+		this.productPdf = productPdf;
 	}
 }

@@ -4,78 +4,78 @@ import java.io.Serializable;
 
 public class Order  implements Serializable{
 
-	private static final long serialVersionUID = -3560539622417210365L;
-	
-	private Long orderId;
-	private Cart cart;
-	private Customer customer;
-	private ShippingDetail shippingDetail;
-	
-	public Order() {
-		this.customer = new Customer();
-		this.shippingDetail = new ShippingDetail();
-	}
+    private static final long serialVersionUID = -3560539622417210365L;
 
-	public Long getOrderId() {
-		return orderId;
-	}
+    private Long orderId;
+    private Cart cart;
+    private Customer customer;
+    private ShippingDetail shippingDetail;
 
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
-	}
+    public Order() {
+        this.customer = new Customer();
+        this.shippingDetail = new ShippingDetail();
+    }
 
-	public Cart getCart() {
-		return cart;
-	}
+    public Long getOrderId() {
+        return orderId;
+    }
 
-	public void setCart(Cart cart) {
-		this.cart = cart;
-	}
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
 
-	public Customer getCustomer() {
-		return customer;
-	}
+    public Cart getCart() {
+        return cart;
+    }
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 
-	public ShippingDetail getShippingDetail() {
-		return shippingDetail;
-	}
+    public Customer getCustomer() {
+        return customer;
+    }
 
-	public void setShippingDetail(ShippingDetail shippingDetail) {
-		this.shippingDetail = shippingDetail;
-	}
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public ShippingDetail getShippingDetail() {
+        return shippingDetail;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 829;
-		int result = 1;
-		result = prime * result + ((orderId == null) ? 0 : orderId.hashCode());
-		return result;
-	}
+    public void setShippingDetail(ShippingDetail shippingDetail) {
+        this.shippingDetail = shippingDetail;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Order other = (Order) obj;
-		if (orderId == null) {
-			if (other.orderId != null)
-				return false;
-		} else if (!orderId.equals(other.orderId))
-			return false;
-		return true;
-	}
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 829;
+        int result = 1;
+        result = prime * result + ((orderId == null) ? 0 : orderId.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Order other = (Order) obj;
+        if (orderId == null) {
+            if (other.orderId != null)
+                return false;
+        } else if (!orderId.equals(other.orderId))
+            return false;
+        return true;
+    }
 
 
 }
